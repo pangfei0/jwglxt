@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jw.dao.LogMapper" >
+  <resultMap id="BaseResultMap" type="com.jw.bean.Log" >
+    <id column="logid" property="logid" jdbcType="INTEGER" />
+    <result column="classes" property="classes" jdbcType="VARCHAR" />
+    <result column="cmethod" property="cmethod" jdbcType="VARCHAR" />
+    <result column="loglevel" property="loglevel" jdbcType="VARCHAR" />
+    <result column="operateuser" property="operateuser" jdbcType="VARCHAR" />
+    <result column="msg" property="msg" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    logid, classes, cmethod, loglevel, operateuser, msg, createtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jw.bean.LogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_operationlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_operationlog
+    where logid = #{logid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_operationlog
+    where logid = #{logid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jw.bean.LogExample" >
+    delete from t_operationlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jw.bean.Log" >
+    insert into t_operationlog (logid, classes, cmethod, 
+      loglevel, operateuser, msg, 
+      createtime)
+    values (#{logid,jdbcType=INTEGER}, #{classes,jdbcType=VARCHAR}, #{cmethod,jdbcType=VARCHAR}, 
+      #{loglevel,jdbcType=VARCHAR}, #{operateuser,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jw.bean.Log" >
+    insert into t_operationlog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logid != null" >
+        logid,
+      </if>
+      <if test="classes != null" >
+        classes,
+      </if>
+      <if test="cmethod != null" >
+        cmethod,
+      </if>
+      <if test="loglevel != null" >
+        loglevel,
+      </if>
+      <if test="operateuser != null" >
+        operateuser,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logid != null" >
+        #{logid,jdbcType=INTEGER},
+      </if>
+      <if test="classes != null" >
+        #{classes,jdbcType=VARCHAR},
+      </if>
+      <if test="cmethod != null" >
+        #{cmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null" >
+        #{loglevel,jdbcType=VARCHAR},
+      </if>
+      <if test="operateuser != null" >
+        #{operateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jw.bean.LogExample" resultType="java.lang.Integer" >
+    select count(*) from t_operationlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_operationlog
+    <set >
+      <if test="record.logid != null" >
+        logid = #{record.logid,jdbcType=INTEGER},
+      </if>
+      <if test="record.classes != null" >
+        classes = #{record.classes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cmethod != null" >
+        cmethod = #{record.cmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loglevel != null" >
+        loglevel = #{record.loglevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operateuser != null" >
+        operateuser = #{record.operateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msg != null" >
+        msg = #{record.msg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_operationlog
+    set logid = #{record.logid,jdbcType=INTEGER},
+      classes = #{record.classes,jdbcType=VARCHAR},
+      cmethod = #{record.cmethod,jdbcType=VARCHAR},
+      loglevel = #{record.loglevel,jdbcType=VARCHAR},
+      operateuser = #{record.operateuser,jdbcType=VARCHAR},
+      msg = #{record.msg,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jw.bean.Log" >
+    update t_operationlog
+    <set >
+      <if test="classes != null" >
+        classes = #{classes,jdbcType=VARCHAR},
+      </if>
+      <if test="cmethod != null" >
+        cmethod = #{cmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null" >
+        loglevel = #{loglevel,jdbcType=VARCHAR},
+      </if>
+      <if test="operateuser != null" >
+        operateuser = #{operateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where logid = #{logid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jw.bean.Log" >
+    update t_operationlog
+    set classes = #{classes,jdbcType=VARCHAR},
+      cmethod = #{cmethod,jdbcType=VARCHAR},
+      loglevel = #{loglevel,jdbcType=VARCHAR},
+      operateuser = #{operateuser,jdbcType=VARCHAR},
+      msg = #{msg,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where logid = #{logid,jdbcType=INTEGER}
+  </update>
+</mapper>

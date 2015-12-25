@@ -1,0 +1,72 @@
+body{
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+    font-weight: normal;
+    line-height: 1.6;
+    color: #333333;
+}
+div{
+    display:block;
+}
+.main {
+    width: 576px;
+    margin: 0 auto;
+}
+.btns {
+    width: 576px;
+    margin: 0 auto;
+}
+.title {
+    font-size: 24px;
+    margin: 10px auto;
+    width: 144px
+}
+.subtitle {
+    font-weight: bold;
+    margin:10px 0;
+}
+.odd{
+    width:80px;
+}
+.even{
+    width:176px;
+}
+table {
+    text-align: left;
+    margin-left:64px;
+    border-spacing:0;
+    font:inherit;
+}
+td {
+    height: 30px;
+    padding:0;
+}
+label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.lab1{
+    font-weight:bolder;
+}
+.bottom{
+    margin-top:10px;
+}
+.btn{
+    background-color: #1fb5ac;
+    color: #fff;
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+.btn1 {
+    margin-left: 4px;
+    margin-top: 15px;
+}
+.btn2 {
+    margin-left: 120px;
+}
+.btn3 {
+    margin-left: 120px;
+}

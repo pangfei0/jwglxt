@@ -1,0 +1,91 @@
+﻿@charset "utf-8";
+
+/* 为需要套用该样式的表格添加class=detailtable */
+.detailtable td,.detailtable  th {
+	font: 12px 宋体;
+	text-align: center;
+	border: 1px solid #3498db;
+	padding: 4px;
+	word-break: break-all;
+}
+
+.detailtable {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+	width: 800px;
+	border: 1px solid #3498db;
+	border-collapse: collapse;
+	text-align: center;
+	cursor: default;
+}
+
+.detailtable caption {
+	padding-bottom: 20px;
+	padding-left: 0px;
+	font: 14px bold 宋体;
+	color: #336699;
+	font-weight: bold;
+	text-align: left;
+}
+
+.detailtable th {
+	color: #fff;
+	border: 1px solid #3498db;
+	background-color: #3498db;
+	font-weight: bold;
+	text-align: center;
+	height: 30px;
+}
+
+.detailtable td {
+	width: auto;
+	height: 16px;
+}
+
+.basictable caption {
+	padding-bottom: 20px;
+	padding-left: 0px;
+	font-size: 18px;
+	font-family: "Microsoft yahei", "微软雅黑", "Tahoma", "Verdana", "Arial",
+		"sans-serif";
+	color: #33517A;
+	font-weight: bold;
+	text-align: left;
+}
+
+.basictable td,.basictable th {
+	font: 12px 宋体;
+	text-align: left;
+	height: 30px;
+	border-bottom: 2px solid #fff;
+	padding: 4px;
+}
+
+.basictable th {
+	color: #fff;
+	background-color: #3498db;
+	font-weight: bold;
+	text-align: left;
+	width: 130px;
+}
+
+.basictable td {
+	width: 170px;
+	background-color: #ecf0f1;
+	white-space:pre-wrap;
+}
+
+.basictable {
+	margin-bottom: 30px;
+	width: auto;
+	border-collapse: collapse;
+	text-align: left;
+	cursor: default;
+	white-space:pre-wrap;
+}
+
+.ptitle {
+	text-align: center;
+	margin-top: 5px;
+}

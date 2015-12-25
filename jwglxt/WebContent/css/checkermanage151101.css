@@ -1,0 +1,147 @@
+html{
+    font-size:62.5%;
+}
+html, body, * { font-family: "Microsoft YaHei" ! important; }
+.head{
+    width: 100%;
+    height: 80px;
+    background-color: #E3EAF4;
+}
+.head .lab{
+    float:right;
+    margin-left: 40px;
+}
+.head .lab01{
+    margin-right: 50px;
+    line-height: 4.5;
+    margin-left: 15px;
+}
+.head .lab02{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #7A7B7D;
+    line-height: 3.7;
+    margin-left: 15px;
+}
+.head .lab03{
+    line-height: 4.5;
+}
+.head .lab04{
+    line-height: 4.5;
+}
+.head .lab05{
+    line-height: 4.5;
+}
+.head .lab06{
+    line-height: 4.5;
+}
+.navbar{
+    width: 100%;
+    height: 80px;
+}
+.navbar .left{
+    width:66%;
+    float:left;
+    height: 80px;
+    line-height: 4.7;
+}
+.navbar .right{
+    width:34%;
+    float:left;
+    height: 80px;
+}
+.navbar .right a{
+    color: #6F6D6E;
+    font-size: 1.8rem;
+    line-height: 4.5;
+    float: right;
+}
+.navbar .btn{
+    margin-left: 10px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    height: 35px;
+    width: 100px;
+    color: #fff;
+}
+.navbar .btn01{
+    background-color: #22BEEF;
+    margin-left: 50px;
+}
+.navbar .btn02{
+    background-color: #DFB30A;
+}
+.navbar .btn03{
+    background-color: #5A70D6;
+}
+.navbar .btn04{
+    background-color: #2BCDDC;
+}
+.navbar .btn05{
+    background-color: #FC7651;
+}
+.navbar .btn06{
+    background-color: #27AFC5;
+}
+.navbar .btn07{
+    background-color: #22BEEF;
+}
+.statebar{
+    width: 100%;
+    height: 40px;
+    background-color: #E3EAF4;
+}
+.statebar .left{
+    width:60%;
+    float:left;
+    line-height: 2.5;
+}
+.statebar .left img,.statebar .left div{
+    float:left;
+}
+.statebar .left img{
+    margin-top: 12px;
+    margin-right: 5px;
+}
+.statebar .right{
+    width:40%;
+    float:left;
+}
+.statebar .right .roomstate{
+    color: #6F6D6E;
+    font-size: 1.7rem;
+    float: right;
+    background-color: #D7D7D7;
+    height: 40px;
+    width: 180px;
+    text-align: center;
+    line-height: 2.4;
+}
+.content{
+    width:100%;
+}
+.content .left{
+    float:left;
+    height:700px;
+}
+.content .right{
+    float:left;
+    width:180px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+.content .right .rbtn{
+    border: 1px solid transparent;
+    border-radius: 25px;
+    height: 42px;
+    width: 120px;
+    color: #fff;
+    background-color: #27AFC5;
+    margin-top: 20px;
+}
+.content .right .rbtn08{
+    background-color: #8B8C91;
+}
+.content .right .rbtn06{
+    margin-bottom: 180px;
+}

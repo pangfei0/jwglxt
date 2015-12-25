@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jw.dao.SchoolMapper" >
+  <resultMap id="BaseResultMap" type="com.jw.bean.School" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="scname" property="scname" jdbcType="VARCHAR" />
+    <result column="scaddress" property="scaddress" jdbcType="VARCHAR" />
+    <result column="sctelephone" property="sctelephone" jdbcType="VARCHAR" />
+    <result column="scwebsite" property="scwebsite" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, scname, scaddress, sctelephone, scwebsite
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jw.bean.SchoolExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_school
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_school
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jw.bean.SchoolExample" >
+    delete from t_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jw.bean.School" >
+    insert into t_school (id, scname, scaddress, 
+      sctelephone, scwebsite)
+    values (#{id,jdbcType=INTEGER}, #{scname,jdbcType=VARCHAR}, #{scaddress,jdbcType=VARCHAR}, 
+      #{sctelephone,jdbcType=VARCHAR}, #{scwebsite,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jw.bean.School" >
+    insert into t_school
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="scname != null" >
+        scname,
+      </if>
+      <if test="scaddress != null" >
+        scaddress,
+      </if>
+      <if test="sctelephone != null" >
+        sctelephone,
+      </if>
+      <if test="scwebsite != null" >
+        scwebsite,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="scname != null" >
+        #{scname,jdbcType=VARCHAR},
+      </if>
+      <if test="scaddress != null" >
+        #{scaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sctelephone != null" >
+        #{sctelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="scwebsite != null" >
+        #{scwebsite,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jw.bean.SchoolExample" resultType="java.lang.Integer" >
+    select count(*) from t_school
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_school
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.scname != null" >
+        scname = #{record.scname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scaddress != null" >
+        scaddress = #{record.scaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sctelephone != null" >
+        sctelephone = #{record.sctelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scwebsite != null" >
+        scwebsite = #{record.scwebsite,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_school
+    set id = #{record.id,jdbcType=INTEGER},
+      scname = #{record.scname,jdbcType=VARCHAR},
+      scaddress = #{record.scaddress,jdbcType=VARCHAR},
+      sctelephone = #{record.sctelephone,jdbcType=VARCHAR},
+      scwebsite = #{record.scwebsite,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jw.bean.School" >
+    update t_school
+    <set >
+      <if test="scname != null" >
+        scname = #{scname,jdbcType=VARCHAR},
+      </if>
+      <if test="scaddress != null" >
+        scaddress = #{scaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sctelephone != null" >
+        sctelephone = #{sctelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="scwebsite != null" >
+        scwebsite = #{scwebsite,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jw.bean.School" >
+    update t_school
+    set scname = #{scname,jdbcType=VARCHAR},
+      scaddress = #{scaddress,jdbcType=VARCHAR},
+      sctelephone = #{sctelephone,jdbcType=VARCHAR},
+      scwebsite = #{scwebsite,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

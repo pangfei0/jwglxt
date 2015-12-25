@@ -1,0 +1,208 @@
+@charset "utf-8";
+/* 全局html标签css复写 */
+hr{
+	margin-top:0px;
+	border:1px solid #cee9ee;
+	cursor:default;
+	}
+
+
+/* 非 jqGrid表格样式，请为需要套用该样式的表格添加class=detailtable */
+/*控制字体的css*/
+.zt{
+	font-size: 16px ;
+	font-weight: 800 ;
+	}
+.detailtable td, th {
+		font: 12px 宋体;
+		text-align: center;
+		border: 1px solid #cee9ee;
+		padding: 4px;
+		word-break: break-all;		
+	}
+	
+.detailtable {
+		
+		width:703px;
+		border:1px solid #cee9ee;
+		border-collapse: collapse;
+		text-align: center;	
+		cursor:default;
+	}
+	
+.detailtable th {
+		
+		color:#336699;
+		background-color: #dfeffc;
+		font-weight: bold;
+		text-align: center;	
+	}
+.detailtable td {
+		height:16px;
+	}
+	
+/* 意见（可输入250字的部分）的样式class=dealdetail */	
+#dealdetail{
+		width:200px;
+		font: 12px 宋体;
+		text-align: center;
+		border: 1px solid #cee9ee;
+		padding: 4px;
+		word-break: break-all;		
+}
+/* 标题的样式class=detailtable */
+div.detailtitle {
+		
+		font: bold 14px 宋体;
+		color: #33517A;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: left;
+		cursor:default;	
+	}
+
+/*表格的单元格宽度，请在需要的td上添加id=td+宽度，需要自定义的只需按照该命名方法在下方添加 */
+#td50 {
+	width:50px;
+}
+#td80{ 
+	width:80px;
+}
+#td100{
+	width:100px;
+}
+#td150{ 
+	width:150px;
+}
+#td200{ 
+	width:200px;
+}
+	
+/* 表格中有表单控件的样式，统一为表格添加class=detailform */
+.detailform td,th {
+		font: 12px 宋体;
+		text-align: left;
+	}
+.detailform {
+		
+		width:450px;
+		border:0px;
+		border-collapse: collapse;
+		text-align: left;
+		cursor:default;	
+	}
+.detailform th {
+		
+		color:#336699;
+		width:150px;
+		border: 1px solid #cee9ee;
+		background-color: #dfeffc;
+		font-weight: bold;
+	}
+.detailform caption {
+		
+		font: bold 14px 宋体;
+		color: #33517A;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: left;		
+	}
+.content label,p label{
+  float: left;
+  width: 80px;
+  font: 1em Arial, Helvetica, sans-serif;
+}
+.span{
+	
+	}
+	
+/* 表单select样式，统一为表格添加class=detail+控件名 */
+.detailselect{
+		/* 表单select样式，高度请单独添加在自定义id中*/
+		font: 12px 宋体;
+		text-align: left;
+		border:1px solid #336699;
+		border-collapse: collapse;
+		width:150px;
+		cursor:pointer;
+}
+
+
+.detailtextarea{
+	    
+		font: 12px 宋体;
+		text-align: left;
+		border:1px solid #336699;
+		border-collapse: collapse;
+		width:300px;
+		height:148px;
+}
+
+/* 全局按钮样式，统一为按钮添加class=detailbutton */
+.detailbutton{
+	    top:0px;
+		filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);    
+		font-zise:9px;
+		border:1px solid #7b9ebd;
+		width:100px;
+		margin:5px 5px 5px 5px;
+		padding-top:2px;
+		padding-bottom:0px;
+		background-color: #f5f7f5;
+}
+
+/* 收起展开按钮样式，统一为按钮添加class=detailfoldbutton */
+input.detailfoldbutton{
+		filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);  
+		cursor: hand;   
+		FONT-SIZE: 12px; 
+		float:right;
+		width:70px;
+		padding-top:2px;
+		padding-bottom:0px;
+		border:1px solid #7b9ebd;
+		background-color: #f5f7f5;
+}
+
+/* 如果需要自定义样式，请设定一个id，然后为该id添加css属性 ，没有指定或者不能是用id的控件可以添加class的css属性*/
+/* 请为每条自定义样式添加说明 */
+.red{
+	color:red;
+	}
+#shehebody{
+		/* myundoneapply.jsp页面 下的id为shehebody的textarea控件 */
+		width:350px;
+	}
+.yincang th {
+	    /* myundoneapply.jsp页面 下的class为yincang的th表头 */
+		color:#336699;
+		width:150px;
+		border: 1px solid #cee9ee;
+		background-color: #dfeffc;
+		font-weight: bold;
+	}
+#sqddetail{
+	cursor:default;	
+	}
+
+	/* 显示提示文字，.....*/
+.tooltips{
+    z-index:2;
+}
+.tooltips:hover{
+    z-index:3;
+    background:none; /*没有这个在IE中不可用*/
+}
+.tooltips span{
+    display: none;
+}
+.tooltips:hover span{ /*span 标签仅在 :hover 状态时显示*/
+    display:block;
+    top:14px;
+    left:0px;
+    width:15em;
+    border:1px solid black;
+    background-color:#FFFFE1;
+    padding: 3px;
+    color:black;
+}

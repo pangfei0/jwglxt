@@ -1,0 +1,116 @@
+html{
+	font-size:62.5%;
+}
+button{
+	width: 120px;
+	height: 40px;
+	background-color: #5A9BD5;
+	border: 1px solid transparent;
+	font-size: 1.5rem;
+	color: #fff;
+	margin:0 10px 10px 0;
+}
+label{
+	color: #fff;
+	font-size: 1.5rem;
+}
+table{
+	width:100%;
+	height:100%;
+	color:#fff;
+	font-size:1.6rem;
+	table-layout:fixed;
+}
+table tr td{
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+button{
+	width: 120px;
+	height: 40px;
+	background-color: #5A9BD5;
+	border: 1px solid transparent;
+	font-size: 1.5rem;
+	color: #fff;
+}
+.sustable{
+	width:100%;
+	height:auto;
+	color: #486E71;
+	line-height: 2;
+}
+.tableinfo01{
+	width:100%;
+	height:auto;
+	color: #486E71;
+	line-height: 2;
+}
+
+
+/* .color_0{	 */
+/* 	background-color: #5A9BD5; */
+/* } */
+/* 空闲 */
+.color_1{
+	background-color: #A5A5A5;
+}
+/* 使用中 */
+.color_2{
+	background-color: #70AD46;
+}
+/* 锁定 */
+.color_3{
+	background-color: #D54444;
+}
+/* 无法使用*/
+.color_4{
+	background-color: #C7BF32;;
+}
+.meau{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+	border-radius: 10px;
+	padding:10px;
+}
+
+
+.main{
+	width:100%;
+	height:900px;
+	border: 1px solid #C4C4C4;
+}
+.main .table_t{
+	width:100%;
+	height:50px;
+	color: #000;
+}
+.main .table_t tr td{
+	text-align:center;
+	border:1px solid #c4c4c4;
+	border-top: transparent;
+	cursor: pointer;
+}
+.main_left{
+	float:left;
+	height:auto;
+	padding-top: 30px;
+}
+.main_right{
+	float:left;
+	width:128px;
+	height:300px;
+}
+.main_right table{
+	width:100%;
+	color: #575656;
+	margin-top:100px;
+}
+.main_right table tr td{
+	width:100%;
+	text-align:center;
+	border:1px solid #c4c4c4;
+	cursor: pointer;
+	height: 50px;
+}

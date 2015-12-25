@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jw.dao.TeacherMapper" >
+  <resultMap id="BaseResultMap" type="com.jw.bean.Teacher" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tnum" property="tnum" jdbcType="VARCHAR" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="tsex" property="tsex" jdbcType="INTEGER" />
+    <result column="tnation" property="tnation" jdbcType="INTEGER" />
+    <result column="tnative" property="tnative" jdbcType="VARCHAR" />
+    <result column="tpolstatus" property="tpolstatus" jdbcType="INTEGER" />
+    <result column="tcard" property="tcard" jdbcType="VARCHAR" />
+    <result column="taddress" property="taddress" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, tnum, tname, tsex, tnation, tnative, tpolstatus, tcard, taddress, telephone, 
+    remark1, remark2, remark3
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jw.bean.TeacherExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_teacher
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_teacher
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jw.bean.TeacherExample" >
+    delete from t_teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jw.bean.Teacher" >
+    insert into t_teacher (id, tnum, tname, 
+      tsex, tnation, tnative, 
+      tpolstatus, tcard, taddress, 
+      telephone, remark1, remark2, 
+      remark3)
+    values (#{id,jdbcType=INTEGER}, #{tnum,jdbcType=VARCHAR}, #{tname,jdbcType=VARCHAR}, 
+      #{tsex,jdbcType=INTEGER}, #{tnation,jdbcType=INTEGER}, #{tnative,jdbcType=VARCHAR}, 
+      #{tpolstatus,jdbcType=INTEGER}, #{tcard,jdbcType=VARCHAR}, #{taddress,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, 
+      #{remark3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jw.bean.Teacher" >
+    insert into t_teacher
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tnum != null" >
+        tnum,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="tsex != null" >
+        tsex,
+      </if>
+      <if test="tnation != null" >
+        tnation,
+      </if>
+      <if test="tnative != null" >
+        tnative,
+      </if>
+      <if test="tpolstatus != null" >
+        tpolstatus,
+      </if>
+      <if test="tcard != null" >
+        tcard,
+      </if>
+      <if test="taddress != null" >
+        taddress,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="remark1 != null" >
+        remark1,
+      </if>
+      <if test="remark2 != null" >
+        remark2,
+      </if>
+      <if test="remark3 != null" >
+        remark3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tnum != null" >
+        #{tnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tsex != null" >
+        #{tsex,jdbcType=INTEGER},
+      </if>
+      <if test="tnation != null" >
+        #{tnation,jdbcType=INTEGER},
+      </if>
+      <if test="tnative != null" >
+        #{tnative,jdbcType=VARCHAR},
+      </if>
+      <if test="tpolstatus != null" >
+        #{tpolstatus,jdbcType=INTEGER},
+      </if>
+      <if test="tcard != null" >
+        #{tcard,jdbcType=VARCHAR},
+      </if>
+      <if test="taddress != null" >
+        #{taddress,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null" >
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jw.bean.TeacherExample" resultType="java.lang.Integer" >
+    select count(*) from t_teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_teacher
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.tnum != null" >
+        tnum = #{record.tnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tname != null" >
+        tname = #{record.tname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tsex != null" >
+        tsex = #{record.tsex,jdbcType=INTEGER},
+      </if>
+      <if test="record.tnation != null" >
+        tnation = #{record.tnation,jdbcType=INTEGER},
+      </if>
+      <if test="record.tnative != null" >
+        tnative = #{record.tnative,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tpolstatus != null" >
+        tpolstatus = #{record.tpolstatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.tcard != null" >
+        tcard = #{record.tcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taddress != null" >
+        taddress = #{record.taddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephone != null" >
+        telephone = #{record.telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark1 != null" >
+        remark1 = #{record.remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark2 != null" >
+        remark2 = #{record.remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark3 != null" >
+        remark3 = #{record.remark3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_teacher
+    set id = #{record.id,jdbcType=INTEGER},
+      tnum = #{record.tnum,jdbcType=VARCHAR},
+      tname = #{record.tname,jdbcType=VARCHAR},
+      tsex = #{record.tsex,jdbcType=INTEGER},
+      tnation = #{record.tnation,jdbcType=INTEGER},
+      tnative = #{record.tnative,jdbcType=VARCHAR},
+      tpolstatus = #{record.tpolstatus,jdbcType=INTEGER},
+      tcard = #{record.tcard,jdbcType=VARCHAR},
+      taddress = #{record.taddress,jdbcType=VARCHAR},
+      telephone = #{record.telephone,jdbcType=VARCHAR},
+      remark1 = #{record.remark1,jdbcType=VARCHAR},
+      remark2 = #{record.remark2,jdbcType=VARCHAR},
+      remark3 = #{record.remark3,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jw.bean.Teacher" >
+    update t_teacher
+    <set >
+      <if test="tnum != null" >
+        tnum = #{tnum,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tsex != null" >
+        tsex = #{tsex,jdbcType=INTEGER},
+      </if>
+      <if test="tnation != null" >
+        tnation = #{tnation,jdbcType=INTEGER},
+      </if>
+      <if test="tnative != null" >
+        tnative = #{tnative,jdbcType=VARCHAR},
+      </if>
+      <if test="tpolstatus != null" >
+        tpolstatus = #{tpolstatus,jdbcType=INTEGER},
+      </if>
+      <if test="tcard != null" >
+        tcard = #{tcard,jdbcType=VARCHAR},
+      </if>
+      <if test="taddress != null" >
+        taddress = #{taddress,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null" >
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null" >
+        remark3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jw.bean.Teacher" >
+    update t_teacher
+    set tnum = #{tnum,jdbcType=VARCHAR},
+      tname = #{tname,jdbcType=VARCHAR},
+      tsex = #{tsex,jdbcType=INTEGER},
+      tnation = #{tnation,jdbcType=INTEGER},
+      tnative = #{tnative,jdbcType=VARCHAR},
+      tpolstatus = #{tpolstatus,jdbcType=INTEGER},
+      tcard = #{tcard,jdbcType=VARCHAR},
+      taddress = #{taddress,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

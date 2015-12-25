@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jw.dao.RoomcurrentstateMapper" >
+  <resultMap id="BaseResultMap" type="com.jw.bean.Roomcurrentstate" >
+    <id column="rcsid" property="rcsid" jdbcType="INTEGER" />
+    <result column="roomid" property="roomid" jdbcType="INTEGER" />
+    <result column="netstate" property="netstate" jdbcType="INTEGER" />
+    <result column="playstate" property="playstate" jdbcType="INTEGER" />
+    <result column="orderid" property="orderid" jdbcType="INTEGER" />
+    <result column="playmovieid" property="playmovieid" jdbcType="INTEGER" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    rcsid, roomid, netstate, playstate, orderid, playmovieid, updatetime, remark
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jw.bean.RoomcurrentstateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_roomcurrentstate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_roomcurrentstate
+    where rcsid = #{rcsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_roomcurrentstate
+    where rcsid = #{rcsid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jw.bean.RoomcurrentstateExample" >
+    delete from t_roomcurrentstate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jw.bean.Roomcurrentstate" >
+    insert into t_roomcurrentstate (rcsid, roomid, netstate, 
+      playstate, orderid, playmovieid, 
+      updatetime, remark)
+    values (#{rcsid,jdbcType=INTEGER}, #{roomid,jdbcType=INTEGER}, #{netstate,jdbcType=INTEGER}, 
+      #{playstate,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{playmovieid,jdbcType=INTEGER}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jw.bean.Roomcurrentstate" >
+    insert into t_roomcurrentstate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rcsid != null" >
+        rcsid,
+      </if>
+      <if test="roomid != null" >
+        roomid,
+      </if>
+      <if test="netstate != null" >
+        netstate,
+      </if>
+      <if test="playstate != null" >
+        playstate,
+      </if>
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="playmovieid != null" >
+        playmovieid,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rcsid != null" >
+        #{rcsid,jdbcType=INTEGER},
+      </if>
+      <if test="roomid != null" >
+        #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="netstate != null" >
+        #{netstate,jdbcType=INTEGER},
+      </if>
+      <if test="playstate != null" >
+        #{playstate,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="playmovieid != null" >
+        #{playmovieid,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jw.bean.RoomcurrentstateExample" resultType="java.lang.Integer" >
+    select count(*) from t_roomcurrentstate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_roomcurrentstate
+    <set >
+      <if test="record.rcsid != null" >
+        rcsid = #{record.rcsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.roomid != null" >
+        roomid = #{record.roomid,jdbcType=INTEGER},
+      </if>
+      <if test="record.netstate != null" >
+        netstate = #{record.netstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.playstate != null" >
+        playstate = #{record.playstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderid != null" >
+        orderid = #{record.orderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.playmovieid != null" >
+        playmovieid = #{record.playmovieid,jdbcType=INTEGER},
+      </if>
+      <if test="record.updatetime != null" >
+        updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_roomcurrentstate
+    set rcsid = #{record.rcsid,jdbcType=INTEGER},
+      roomid = #{record.roomid,jdbcType=INTEGER},
+      netstate = #{record.netstate,jdbcType=INTEGER},
+      playstate = #{record.playstate,jdbcType=INTEGER},
+      orderid = #{record.orderid,jdbcType=INTEGER},
+      playmovieid = #{record.playmovieid,jdbcType=INTEGER},
+      updatetime = #{record.updatetime,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jw.bean.Roomcurrentstate" >
+    update t_roomcurrentstate
+    <set >
+      <if test="roomid != null" >
+        roomid = #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="netstate != null" >
+        netstate = #{netstate,jdbcType=INTEGER},
+      </if>
+      <if test="playstate != null" >
+        playstate = #{playstate,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null" >
+        orderid = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="playmovieid != null" >
+        playmovieid = #{playmovieid,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rcsid = #{rcsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jw.bean.Roomcurrentstate" >
+    update t_roomcurrentstate
+    set roomid = #{roomid,jdbcType=INTEGER},
+      netstate = #{netstate,jdbcType=INTEGER},
+      playstate = #{playstate,jdbcType=INTEGER},
+      orderid = #{orderid,jdbcType=INTEGER},
+      playmovieid = #{playmovieid,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where rcsid = #{rcsid,jdbcType=INTEGER}
+  </update>
+</mapper>

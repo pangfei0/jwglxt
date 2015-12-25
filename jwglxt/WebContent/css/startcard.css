@@ -1,0 +1,17 @@
+.memcardmain{
+    position: absolute;
+    top: 53px;z-index: 2;
+    opacity: 1;
+    background-color: #F9F6F6;
+    width: 1900px;
+    height: 450px;
+}
+.leftlabel{
+    color: black;
+    font-weight: 100;
+    font-size: 1.8rem;
+    padding-right: 100px;
+}
+.lefttd{
+    float:right;
+}
